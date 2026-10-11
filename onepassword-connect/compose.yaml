@@ -1,0 +1,21 @@
+name: onepassword-connect
+services:
+  connect-api:
+    image: 1password/connect-api:1.8.3
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes: &connect-volumes
+      - data:/home/opuser/.op/data
+      - type: bind
+        read_only: true
+        source: ./1password-credentials.json
+        target: /home/opuser/.op/1password-credentials.json
+        bind:
+          create_host_path: false
+  connect-sync:
+    image: 1password/connect-sync:1.8.3
+    restart: unless-stopped
+    volumes: *connect-volumes
+volumes:
+  data: {}

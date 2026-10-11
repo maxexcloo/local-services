@@ -1,0 +1,25 @@
+[tools]
+actionlint = "1.7.12"
+prettier = "3.9.10"
+shellcheck = "0.11.0"
+
+# Development
+[tasks.check]
+description = "Check Compose Configuration, Formatting & Shell Scripts"
+run = """
+actionlint .github/workflows/*.yaml
+docker compose --file atvloadly/compose.yaml config --quiet
+docker compose --file onepassword-connect/compose.yaml config --quiet
+prettier --check .
+shellcheck atvloadly/start.sh
+git diff --check
+"""
+
+[tasks.fmt]
+description = "Format Project Files"
+run = "prettier --write ."
+
+# Setup
+[tasks.setup]
+description = "Install Development Tools"
+run = "mise install"
