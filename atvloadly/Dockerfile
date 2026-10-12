@@ -1,4 +1,4 @@
-FROM bitxeno/atvloadly:v0.6.2
+FROM bitxeno/atvloadly:v0.6.4
 # The upstream image leaves /tmp unwritable by apt's unprivileged helper.
 RUN chmod 1777 /tmp \
     && apt-get update -o APT::Update::Error-Mode=any \
