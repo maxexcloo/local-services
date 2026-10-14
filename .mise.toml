@@ -1,12 +1,12 @@
 [tools]
+# gh = "latest"
+# updatecli = "latest"
 actionlint = "1.7.12"
 prettier = "3.9.10"
 shellcheck = "0.11.0"
-
 updatecli = "0.122.1"
 
 # Dependency Updates
-
 [tasks."dependencies:check"]
 description = "Preview Local Dependency Updates"
 run = """
@@ -29,13 +29,14 @@ updatecli pipeline apply --config .updatecli.d --disable-changelog --disable-uda
 """
 
 # Development
-
 [tasks.check]
 description = "Check Compose Configuration & Formatting"
 run = """
 updatecli manifest validate --config .updatecli.d --disable-templating --strict
 actionlint .github/workflows/*.yaml
-docker compose --file onepassword-connect/compose.yaml config --quiet
+for config in */compose.yaml; do
+  docker compose --file "$config" config --quiet
+done
 prettier --check .
 git diff --check
 """
@@ -43,9 +44,3 @@ git diff --check
 [tasks.fmt]
 description = "Format Project Files"
 run = "prettier --write ."
-
-# Setup
-
-[tasks.setup]
-description = "Install Development Tools"
-run = "mise install"

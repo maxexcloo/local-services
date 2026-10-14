@@ -22,7 +22,7 @@ obtain credentials and client tokens.
 ## Development
 
 ```sh
-mise run setup
+mise install
 mise run check
 ```
 
