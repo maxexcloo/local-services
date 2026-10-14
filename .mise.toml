@@ -5,15 +5,7 @@ shellcheck = "0.11.0"
 
 updatecli = "0.122.1"
 
-[tasks.check]
-description = "Check Compose Configuration & Formatting"
-run = """
-updatecli manifest validate --config .updatecli.d --disable-templating --strict
-actionlint .github/workflows/*.yaml
-docker compose --file onepassword-connect/compose.yaml config --quiet
-prettier --check .
-git diff --check
-"""
+# Dependency Updates
 
 [tasks."dependencies:check"]
 description = "Preview Local Dependency Updates"
@@ -36,9 +28,23 @@ fi
 updatecli pipeline apply --config .updatecli.d --disable-changelog --disable-udash-report --unique-tmp-dir "$@"
 """
 
+# Development
+
+[tasks.check]
+description = "Check Compose Configuration & Formatting"
+run = """
+updatecli manifest validate --config .updatecli.d --disable-templating --strict
+actionlint .github/workflows/*.yaml
+docker compose --file onepassword-connect/compose.yaml config --quiet
+prettier --check .
+git diff --check
+"""
+
 [tasks.fmt]
 description = "Format Project Files"
 run = "prettier --write ."
+
+# Setup
 
 [tasks.setup]
 description = "Install Development Tools"
