@@ -5,13 +5,11 @@ shellcheck = "0.11.0"
 
 # Development
 [tasks.check]
-description = "Check Compose Configuration, Formatting & Shell Scripts"
+description = "Check Compose Configuration & Formatting"
 run = """
 actionlint .github/workflows/*.yaml
-docker compose --file atvloadly/compose.yaml config --quiet
 docker compose --file onepassword-connect/compose.yaml config --quiet
 prettier --check .
-shellcheck atvloadly/start.sh
 git diff --check
 """
 
