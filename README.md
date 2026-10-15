@@ -26,7 +26,7 @@ mise install
 mise run check
 ```
 
-Checks validate the Compose stack, formatting and workflow syntax. They do not
+Checks validate the Compose stack and formatting. They do not
 start services or require Connect credentials. Updatecli previews local dependency updates
 for manual review.
 

@@ -14,7 +14,7 @@ OrbStack on macOS.
 - Keep executable startup code in its own source file.
 - Keep persistent application data in named volumes. Preserve existing volumes
   and pairing records when replacing containers.
-- Keep service startup and shutdown manual; CI validates configuration only.
+- Keep service startup and shutdown manual; validate configuration locally.
 - Pin upstream images to stable releases. Build local images through Compose.
 
 ## Verification
