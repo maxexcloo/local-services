@@ -18,3 +18,8 @@ git diff --check
 [tasks.fmt]
 description = "Format Project Files"
 run = "prettier --write ."
+
+[tasks.updates]
+description = "Review Discovered Dependency Updates"
+run = 'updatecli "${usage_action?}" --config .updatecli.d'
+usage = 'arg "[action]" default="diff"'
