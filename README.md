@@ -23,6 +23,4 @@ formatting and Updatecli manifests without starting services. Formatting uses
 Prettier.
 
 Preview dependency updates with `mise run dependencies:check`; apply reviewed changes with
-`mise run dependencies:update`. Updatecli uses native Docker Compose discovery and
-checks project-specific Mise tools. Update groups follow their ecosystems:
-`docker` and `mise`.
+`mise run dependencies:update`. Updatecli uses native Docker Compose discovery with the `docker` update group.
