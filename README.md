@@ -9,6 +9,9 @@ credentials in your user configuration directory, as referenced by each stack.
 
 ## Development
 
+Install the [shared Mise configuration](https://github.com/maxexcloo/dotfiles#shared-tools--tasks)
+before running local Mise tasks.
+
 ```sh
 mise install
 mise run check
@@ -19,7 +22,7 @@ Mise is only needed for development. Checks validate Compose configuration,
 formatting and Updatecli manifests without starting services. Formatting uses
 Prettier.
 
-Preview dependency updates with `mise run updates`; apply reviewed changes with
-`mise run updates apply`. Updatecli uses native Docker Compose discovery and
+Preview dependency updates with `mise run dependencies:check`; apply reviewed changes with
+`mise run dependencies:update`. Updatecli uses native Docker Compose discovery and
 checks project-specific Mise tools. Update groups follow their ecosystems:
 `docker` and `mise`.

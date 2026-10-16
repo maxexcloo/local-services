@@ -1,25 +1,11 @@
-[tools]
-# gh = "latest"
-# updatecli = "latest"
-prettier = "3.9.10"
-
 # Development
 [tasks.check]
-description = "Check Compose Configuration & Formatting"
+depends = ["check:prettier", "check:updates", "check:whitespace"]
 run = """
-updatecli manifest validate --config .updatecli.d --disable-templating --strict
 for config in */compose.yaml; do
   docker compose --file "$config" config --quiet
 done
-prettier --check .
-git diff --check
 """
 
 [tasks.fmt]
-description = "Format Project Files"
-run = "prettier --write ."
-
-[tasks.updates]
-description = "Review Discovered Dependency Updates"
-run = 'updatecli "${usage_action?}" --config .updatecli.d'
-usage = 'arg "[action]" default="diff"'
+depends = ["fmt:prettier"]
