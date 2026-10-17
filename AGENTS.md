@@ -24,6 +24,8 @@ OrbStack on macOS.
 
 ## Verification
 
-Run `mise run check` after changes. For Dockerfile or startup changes, build the
-changed service and verify its health and retained data locally. Connect runtime
-checks require a supplied credentials file; configuration checks do not.
+Run `mise run check` after changes. For Dockerfile, image, mount, networking or
+startup changes, verify the affected service's health, access and retained data
+locally. Build changed local images through Compose before runtime checks;
+services using upstream images do not need a build. Connect runtime checks require
+a supplied credentials file; configuration checks do not.
