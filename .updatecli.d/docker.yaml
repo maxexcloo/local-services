@@ -3,6 +3,7 @@ name: Update Docker
 pipelineid: update-docker
 autodiscovery:
   crawlers:
-    dockercompose: null
+    dockercompose:
+      digest: false
 labels:
   group: docker
