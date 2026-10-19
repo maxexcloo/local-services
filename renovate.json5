@@ -1,0 +1,12 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>maxexcloo/dotfiles//renovate/default.json5"],
+  packageRules: [
+    {
+      description: "Connect API and sync images must run the same release",
+      groupName: "1Password Connect",
+      matchDatasources: ["docker"],
+      matchPackageNames: ["1password/connect-*"],
+    },
+  ],
+}

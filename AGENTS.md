@@ -7,7 +7,7 @@ OrbStack on macOS.
 
 ## Conventions
 
-- Keep dependency updates manual through native Updatecli discovery.
+- Keep dependency updates manual through native Renovate discovery.
 - Keep each service in its own directory with a `compose.yaml` file.
 - Keep persistent application data in named volumes. Preserve existing volumes
   and pairing records when replacing containers.

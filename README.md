@@ -29,5 +29,5 @@ mise run fmt
 ```
 
 Mise is only needed for development. Checks validate Compose configuration,
-formatting and Updatecli manifests without starting services. Formatting uses
-Oxfmt.
+formatting and Renovate configuration without starting services. Formatting
+uses Oxfmt.
