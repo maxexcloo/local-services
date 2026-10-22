@@ -1,6 +1,6 @@
 services:
   connect-api:
-    image: 1password/connect-api:1.8.3
+    image: 1password/connect-api:1.8.4
     restart: unless-stopped
     volumes: &connect-volumes
       - data:/home/opuser/.op/data
@@ -11,7 +11,7 @@ services:
         bind:
           create_host_path: false
   connect-sync:
-    image: 1password/connect-sync:1.8.3
+    image: 1password/connect-sync:1.8.4
     restart: unless-stopped
     volumes: *connect-volumes
 volumes:

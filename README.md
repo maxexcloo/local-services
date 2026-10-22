@@ -5,19 +5,15 @@ OrbStack. Each service directory has its own `compose.yaml`. I start and stop th
 by hand with Docker Compose and reach the web services through OrbStack's
 automatic HTTPS domains.
 
-Persistent data lives in named volumes, so it survives container replacement.
-Keep credentials in your user configuration directory, where each stack expects
-them.
-
-Once a stack's credentials are in place, start it from the repository root, for
-example:
+Start a stack from the repository root, for example:
 
 ```sh
 docker compose --file onepassword-connect/compose.yaml up --detach
 ```
 
 [1Password Connect](https://www.1password.dev/connect/get-started)
-serves its API at `https://connect-api.onepassword-connect.orb.local`.
+reads its credentials file from `~/.config/op/connect/` and serves its API at
+`https://connect-api.onepassword-connect.orb.local`.
 
 ## Development
 
@@ -28,7 +24,3 @@ before running local Mise tasks.
 mise run check
 mise run fmt
 ```
-
-Mise is only needed for development. The checks validate the Compose
-configuration, formatting and Renovate configuration without starting any
-services. Formatting uses Oxfmt.

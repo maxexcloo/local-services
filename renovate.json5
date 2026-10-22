@@ -5,7 +5,6 @@
     {
       description: "Connect API and sync images must run the same release",
       groupName: "1Password Connect",
-      matchDatasources: ["docker"],
       matchPackageNames: ["1password/connect-*"],
     },
   ],

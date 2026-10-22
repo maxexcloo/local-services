@@ -7,14 +7,11 @@ OrbStack on macOS.
 
 ## Conventions
 
-- Keep dependency updates manual through native Renovate discovery.
 - Keep each service in its own directory with a `compose.yaml` file.
 - Keep persistent application data in named volumes. Preserve existing volumes
   and pairing records when replacing containers.
-- Keep README content general and brief; keep service settings in Compose.
 - Start and stop services manually; add no startup automation beyond
-  `restart: unless-stopped`. Validate configuration locally.
-- Pin upstream images to stable releases.
+  `restart: unless-stopped`.
 - Prefer OrbStack's automatic domains and HTTPS without published host ports.
   Bind required published ports to localhost. Use host networking only for LAN
   discovery, with service UIs bound to localhost.
