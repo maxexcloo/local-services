@@ -24,3 +24,7 @@ before running local Mise tasks.
 mise run check
 mise run fmt
 ```
+
+## Licence
+
+AGPL-3.0 - see [LICENSE](LICENSE).

@@ -1,11 +1,11 @@
 # Development
 [tasks.check]
-depends = ["check:mise", "check:oxfmt", "check:updates", "check:whitespace"]
 run = """
 for config in */compose.yaml; do
   docker compose --file "$config" config --quiet
 done
 """
+depends = ["check:mise", "check:oxfmt", "check:updates", "check:whitespace"]
 
 [tasks.fmt]
 depends = ["fmt:mise", "fmt:oxfmt"]
